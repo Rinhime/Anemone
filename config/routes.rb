@@ -7,10 +7,15 @@ Rails.application.routes.draw do
     sessions: "public/sessions"
   }
   
+  root to: 'home#top'
+  namespase :public do
+    get "customers/show/" => "customers#show"
+  end
+  
   # 管理者用
-  # URL /admin/sign_in ...
+  # URL /admins/sign_in ...
   devise_for :admins, controllers: {
-    sessions: "admin/session"
+    sessions: "admin/sessions"
   }
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
